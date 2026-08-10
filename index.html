@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflee: Tomorrow X Together Edition</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- STAGE 1: THE PROFILE SELECTION SCREEN (WHO'S WATCHING) -->
+    <div class="profile-gate" id="profileGate">
+        <div class="profile-gate-container">
+            <h1 class="gate-title">Who's watching?</h1>
+            <div class="profile-row-cards">
+                <!-- User Profile 1: Beomgyu -->
+                <div class="profile-user-card" onclick="selectUserProfile('beomgyu')">
+                    <div class="avatar-box avatar-bg-bg">
+                        <!-- Custom Minimalist Avatar Layout representing Beomgyu -->
+                        <div class="avatar-inner">🧸</div>
+                    </div>
+                    <span class="profile-username">Beomgyu</span>
+                </div>
+                <!-- User Profile 2: Soobin -->
+                <div class="profile-user-card" onclick="selectUserProfile('soobin')">
+                    <div class="avatar-box avatar-sb-bg">
+                        <!-- Custom Minimalist Avatar Layout representing Soobin -->
+                        <div class="avatar-inner">🐰</div>
+                    </div>
+                    <span class="profile-username">Soobin</span>
+                </div>
+            </div>
+            <button class="manage-profiles-btn">Manage Profiles</button>
+        </div>
+    </div>
+
+    <!-- STAGE 2: THE STREAMING CONTENT DASHBOARD (Hidden until active choice) -->
+    <div class="dashboard-viewport hidden-layer" id="dashboardArea">
+        <!-- Persistent Top Header Strip -->
+        <header id="mainNavigation">
+            <div class="header-left-cluster">
+                <span class="brand-logo" onclick="switchBackToProfiles()">Netflee</span>
+                <nav class="nav-links-desktop">
+                    <span class="nav-link active">Home</span>
+                    <span class="nav-link">TV Shows</span>
+                    <span class="nav-link">Movies</span>
+                    <span class="nav-link">New & Popular</span>
+                </nav>
+            </div>
+            <div class="header-right-cluster">
+                <!-- Dropdown profile display badge -->
+                <div class="current-user-badge" id="navAvatarDisplay" onclick="switchBackToProfiles()">
+                    <span id="navAvatarIcon">🧸</span>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- Giant Feature Spotlight Trailer Display Panel -->
+            <section class="hero-spotlight" id="heroDisplayArea">
+                <div class="hero-overlay-shadows"></div>
+                <div class="hero-meta-contents">
+                    <h1 class="hero-title-text" id="heroTitleNode">Spotlight Feature</h1>
+                    <p class="hero-plot-summary" id="heroPlotNode">Loading deep profile summary details matrix data content elements...</p>
+                    <div class="hero-btn-row">
+                        <button class="hero-btn play-action" onclick="triggerMainFeatureVideo()">► Play</button>
+                        <button class="hero-btn info-action">ⓘ More Info</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dynamically Loaded Movie Lists Display Grid Section -->
+            <section class="streaming-rows-wrapper">
+                
+                <!-- Collection Row Segment 1 -->
+                <div class="category-row-block">
+                    <h2 class="category-row-title" id="rowTitleOne">Beomgyu's Cinematic Chronicles</h2>
+                    <div class="horizontal-scroll-carousel" id="carouselRowOne">
+                        <!-- Custom Movie Card Cards will automatically build dynamically here from JS logic -->
+                    </div>
+                </div>
+
+                <!-- Collection Row Segment 2 -->
+                <div class="category-row-block">
+                    <h2 class="category-row-title" id="rowTitleTwo">Soobin's Special Collections</h2>
+                    <div class="horizontal-scroll-carousel" id="carouselRowTwo">
+                        <!-- Custom Movie Card Cards will automatically build dynamically here from JS logic -->
+                    </div>
+                </div>
+
+            </section>
+        </main>
+    </div>
+
+    <!-- STAGE 3: DETAILED PREVIEW AND VIDEO STREAM MODAL OVERLAY -->
+    <div class="modal-media-overlay" id="previewMediaModal">
+        <div class="modal-content-card">
+            <div class="modal-video-theater">
+                <button class="close-theater-btn" id="closeModalBtn">&times;</button>
+                <div class="playback-simulation-spinner">
+                    <div class="loading-ring"></div>
+                    <span style="margin-top: 15px; font-weight: bold; letter-spacing: 0.5px;">STREAMING PREVIEW ACTIVE...</span>
+                </div>
+            </div>
+            <div class="modal-narrative-body">
+                <div class="modal-analytics-row">
+                    <span class="match-score-label">99% Match</span>
+                    <span class="meta-year-label">2026</span>
+                    <span class="maturity-rating-tag">TV-MA</span>
+                    <span class="video-quality-tag">Ultra HD 4K</span>
+                </div>
+                <h2 class="modal-display-title" id="modalDisplayTitle">Show Title</h2>
+                <p class="modal-display-description" id="modalDisplayDescription">Detailed descriptive storyline text placement node goes here.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
