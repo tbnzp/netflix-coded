@@ -1,186 +1,222 @@
-// ==========================================
-// 1. CHRONICLES AND DATA DIRECTORIES FOR PROFILES
-// ==========================================
-const userCatalogues = {
-    beomgyu: {
-        profileName: "Beomgyu",
-        avatarIcon: "🧸",
-        avatarColor: "#ff9f1c",
+// ==========================================================
+// 1. DATA DIRECTORIES MATRIX ARCHITECTURE (PROFILES CATALOGUE)
+// ==========================================================
+const profilesDatabase = {
+    eia: {
+        username: "Eia",
+        avatarUrl: "https://unsplash.com",
         spotlight: {
-            title: "The Sound of Music",
-            plot: "Season 1: Step into the artistic, brilliant world of Choi Beomgyu. Replay the beautiful melodies, the tireless guitar practice sessions, and the brightest energetic smiles that illuminate our everyday space completely.",
+            title: "Melody of Hearts",
+            type: "Series",
+            genre: "Romance",
+            year: "2026",
+            duration: "Season 1",
+            ageLimit: "TV-PG",
+            plot: "A beautiful, heartwarming journey mapping out every sweet laugh, shared milestone, and unforgettable memory held close to the core. Personalized completely for Lee's favorite person.",
             backdrop: "https://unsplash.com"
         },
-        rows: {
-            rowOneTitle: "Trending Masterpieces",
+        shelves: {
+            rowOneTitle: "Your Favorite Comfort Shows",
             rowOneData: [
-                { title: "Center Stage Energy", plot: "Episode 1: Chronicling the explosive charisma, unparalleled live focus, and beautiful performance expressions that captivate stadiums across the globe.", img: "https://unsplash.com" },
-                { title: "Late Night Studio Jam", plot: "Episode 2: An intimate behind-the-scenes gaze at the acoustic composition runs, quiet strums, and dedicated lyric crafting drafts hidden inside the twilight studio.", img: "https://unsplash.com" },
-                { title: "The Wittiest Comeback", plot: "Episode 3: A laughter-packed highlight reel tracking your signature humor, unmatched variety-show quickness, and joyful variety timing.", img: "https://unsplash.com" }
+                { title: "The Soothing Voice", plot: "Episode 1: Chronicling the gentle, reassuring phone calls that can instantly wash away all doubts and make everything feel entirely peaceful.", img: "https://unsplash.com" },
+                { title: "Sweet Inside Jokes", plot: "Episode 2: A lighthearted compilation tracking your contagious giggles and the unique vocabulary that belongs strictly to our world.", img: "https://unsplash.com" },
+                { title: "Everyday Light", plot: "Episode 3: Documenting the beautiful soul and warmth you bring into my existence every single day without exception.", img: "https://unsplash.com" }
             ],
-            rowTwoTitle: "Fan-Favorite Milestones",
+            rowTwoTitle: "Critically Acclaimed Masterpieces",
             rowTwoData: [
-                { title: "A Radiant Smile", plot: "Special Cut: Exploring the comforting warmth and contagious positivity that sweeps away standard worries and brightens our horizon instantly.", img: "https://unsplash.com" },
-                { title: "Vulnerable Moments", plot: "Documentary Short: Revealing the deeply thoughtful, empathetic inner layers behind the energetic performer persona. A raw, authentic testament to pure dedication.", img: "https://unsplash.com" }
+                { title: "The Anchor & Peace", plot: "Feature Film: An elegant look at your infinite patience, deep understanding, and why you remain my favorite anchor in this lifetime.", img: "https://unsplash.com" },
+                { title: "Our Next Chapter", plot: "Special Preview: Exploring future milestones, upcoming trips, and all the gifts waiting for you once we meet face-to-face again.", img: "https://unsplash.com" }
             ]
         }
     },
-    soobin: {
-        profileName: "Soobin",
-        avatarIcon: "🐰",
-        avatarColor: "#2ec4b6",
+    lee: {
+        username: "Lee",
+        avatarUrl: "https://unsplash.com",
         spotlight: {
-            title: "The Leader's Sanctuary",
-            plot: "Season 1: Delve into the gentle, deeply reliable, and comforting cosmos of Choi Soobin. Uncover the story behind his steadfast quiet leadership, soothing tone, and the sanctuary of peace he builds daily.",
+            title: "EXTINCTION",
+            type: "Film",
+            genre: "Horror",
+            year: "2015",
+            duration: "1h 52m",
+            ageLimit: "16+",
+            plot: "Nine years after a zombie apocalypse, three survivors face an even deadlier threat in this thriller directed by Miguel Ángel Vivas (\"Kidnapped\").",
             backdrop: "https://unsplash.com"
         },
-        rows: {
-            rowOneTitle: "Most Replayed Collections",
+        shelves: {
+            rowOneTitle: "Suspenseful Western TV Shows",
             rowOneData: [
-                { title: "The Reassuring Presence", plot: "Episode 1: Documenting the subtle gestures, calm leadership pillars, and grounded energy that transforms confusing trials into peaceful clarity.", img: "https://unsplash.com" },
-                { title: "Cozy Bread Excursions", plot: "Episode 2: A whimsical, lighthearted look at your legendary culinary bakery quests, love for comforting snacks, and pure, unfiltered foodie happiness.", img: "https://unsplash.com" },
-                { title: "Sweet Dimple Chronicles", plot: "Episode 3: A macro-lens look at the soft dimpled expression that brings immediate happiness to everyone around you across this entire lifetime.", img: "https://unsplash.com" }
+                { title: "The Walking Dead", plot: "Season 1: Sheriff Deputy Rick Grimes wakes up from a coma to discover the world is in ruins and must lead a group of survivors to stay alive.", img: "https://unsplash.com" },
+                { title: "The Last of Us", plot: "Season 1: After a global pandemic destroys civilization, a hardened survivor takes charge of a 14-year-old girl who may be humanity's last hope.", img: "https://unsplash.com" },
+                { title: "Stranger Things", plot: "Season 1: When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces and one strange little girl.", img: "https://unsplash.com" }
             ],
-            rowTwoTitle: "Late-Night Reflection Lanes",
+            rowTwoTitle: "Action-Packed Blockbusters",
             rowTwoData: [
-                { title: "The Soothing Melodies", plot: "Special Track: Analyzing the vocal lines and delicate high notes that wrap around hearts like a warm blanket on freezing winter nights.", img: "https://unsplash.com" },
-                { title: "Unwavering Kindness", plot: "Featurette: Retracing endless instances of your authentic empathy, patience, and comforting care extended toward the world.", img: "https://unsplash.com" }
+                { title: "World War Z", plot: "Feature Length: Former United Nations investigator Gerry Lane travels the world in a race against time to stop a pandemic that is toppling armies.", img: "https://unsplash.com" },
+                { title: "28 Days Later", plot: "Classic Cut: Four weeks after a mysterious, incurable virus spreads throughout the UK, a handful of survivors try to find sanctuary.", img: "https://unsplash.com" }
             ]
         }
     }
 };
 
-// ==========================================
-// 2. DOM INTERFACE ELEMENTS BINDINGS
-// ==========================================
+// ==========================================================
+// 2. DOM ELEMENT NODES SELECTORS
+// ==========================================================
 const profileGate = document.getElementById('profileGate');
 const dashboardArea = document.getElementById('dashboardArea');
-const mainHeader = document.getElementById('mainNavigation');
-const navAvatarIcon = document.getElementById('navAvatarIcon');
-const navAvatarDisplay = document.getElementById('navAvatarDisplay');
+const mainHeaderBar = document.getElementById('mainHeaderBar');
 
-const heroDisplayArea = document.getElementById('heroDisplayArea');
+const navAvatarImageNode = document.getElementById('navAvatarImageNode');
+const dropdownAlternateAvatarImageNode = document.getElementById('dropdownAlternateAvatarImageNode');
+const dropdownAlternateProfileNameNode = document.getElementById('dropdownAlternateProfileNameNode');
+const heroWallpaperCanvas = document.getElementById('heroWallpaperCanvas');
 const heroTitleNode = document.getElementById('heroTitleNode');
+const heroTypeBadge = document.getElementById('heroTypeBadge');
+const heroGenreBadge = document.getElementById('heroGenreBadge');
+const heroYearBadge = document.getElementById('heroYearBadge');
+const heroDurationBadge = document.getElementById('heroDurationBadge');
+const heroAgeLimitBadge = document.getElementById('heroAgeLimitBadge');
 const heroPlotNode = document.getElementById('heroPlotNode');
 
-const rowTitleOne = document.getElementById('rowTitleOne');
-const rowTitleTwo = document.getElementById('rowTitleTwo');
+const contentRowTitleOne = document.getElementById('contentRowTitleOne');
+const contentRowTitleTwo = document.getElementById('contentRowTitleTwo');
 const carouselRowOne = document.getElementById('carouselRowOne');
 const carouselRowTwo = document.getElementById('carouselRowTwo');
 
-const previewModal = document.getElementById('previewMediaModal');
+const cinemaPreviewModal = document.getElementById('cinemaPreviewModal');
 const modalDisplayTitle = document.getElementById('modalDisplayTitle');
 const modalDisplayDescription = document.getElementById('modalDisplayDescription');
-const closeModalBtn = document.getElementById('closeModalBtn');
+const closeCinemaModalBtn = document.getElementById('closeCinemaModalBtn');
+const audioFeedbackMuteBtn = document.getElementById('audioFeedbackMuteBtn');
+const moreInfoTrigger = document.getElementById('moreInfoTrigger');
 
-// Active state values tracking variables
-let activeProfileData = null;
+// Runtime Tracking Memory State Variables
+let currentSessionKey = "lee";
 
-// ==========================================
-// 3. ARCHITECTURE PLATFORM LOGIC & ENGINE
-// ==========================================
+// ==========================================================
+// 3. UI RENDERING CORE ENGINE LOGIC FUNCTIONS
+// ==========================================================
 
-// Handles profile transition selections
-function selectUserProfile(userKey) {
-    activeProfileData = userCatalogues[userKey];
-    if (!activeProfileData) return;
+function selectUserProfile(profileKey) {
+    currentSessionKey = profileKey;
+    const sessionData = profilesDatabase[profileKey];
+    if (!sessionData) return;
 
-    // A: Set up the Nav header badge indicators
-    navAvatarIcon.textContent = activeProfileData.avatarIcon;
-    navAvatarDisplay.style.backgroundColor = activeProfileData.avatarColor;
-
-    // B: Inject the Main Spotlight Banner contents
-    heroDisplayArea.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4) 60%, #141414 100%), url('${activeProfileData.spotlight.backdrop}')`;
-    heroTitleNode.textContent = activeProfileData.spotlight.title;
-    heroPlotNode.textContent = activeProfileData.spotlight.plot;
-
-    // C: Populate Content Rows
-    rowTitleOne.textContent = activeProfileData.rows.rowOneTitle;
-    rowTitleTwo.textContent = activeProfileData.rows.rowTwoTitle;
+    // A: Hydrate Navigation Profile Badges
+    navAvatarImageNode.src = sessionData.avatarUrl;
     
-    buildMovieCarouselCards(activeProfileData.rows.rowOneData, carouselRowOne);
-    buildMovieCarouselCards(activeProfileData.rows.rowTwoData, carouselRowTwo);
+    const alternateKey = (profileKey === "lee") ? "eia" : "lee";
+    const alternateData = profilesDatabase[alternateKey];
+    dropdownAlternateAvatarImageNode.src = alternateData.avatarUrl;
+    dropdownAlternateProfileNameNode.textContent = alternateData.username;
 
-    // D: Structural Layer Switching Animation Triggers
-    profileGate.classList.add('hidden-layer');
-    dashboardArea.classList.remove('hidden-layer');
+    // B: Re-render Spotlight Spotlight Canvas Elements
+    heroWallpaperCanvas.style.backgroundImage = `linear-gradient(to top, #141414 5%, rgba(20,20,20,0.1) 50%, rgba(0,0,0,0.4) 100%), url('${sessionData.spotlight.backdrop}')`;
+    heroTitleNode.textContent = sessionData.spotlight.title;
+    heroTypeBadge.textContent = sessionData.spotlight.type;
+    heroGenreBadge.textContent = sessionData.spotlight.genre;
+    heroYearBadge.textContent = sessionData.spotlight.year;
+    heroDurationBadge.textContent = sessionData.spotlight.duration;
+    heroAgeLimitBadge.textContent = sessionData.spotlight.ageLimit;
+    heroPlotNode.textContent = sessionData.spotlight.plot;
+
+    // C: Populate Horizontal Carousel Content Channels
+    contentRowTitleOne.textContent = sessionData.shelves.rowOneTitle;
+    contentRowTitleTwo.textContent = sessionData.shelves.rowTwoTitle;
+    
+    renderShelfCarouselCards(sessionData.shelves.rowOneData, carouselRowOne);
+    renderShelfCarouselCards(sessionData.shelves.rowTwoData, carouselRowTwo);
+
+    // D: Interface View Switch States
+    profileGate.classList.add('hidden-display-layer');
+    dashboardArea.classList.remove('hidden-display-layer');
     window.scrollTo(0, 0);
 }
 
-// Generates dynamic thumbnail markup elements
-function buildMovieCarouselCards(movieArray, targetContainer) {
-    targetContainer.innerHTML = ''; // Wipe past rows data cleanly
+function renderShelfCarouselCards(movieDataArray, targetWrapperNode) {
+    targetWrapperNode.innerHTML = ''; 
     
-    movieArray.forEach(movie => {
-        const card = document.createElement('div');
-        card.classList.add('movie-card');
+    movieDataArray.forEach(movie => {
+        const itemCard = document.createElement('div');
+        itemCard.classList.add('movie-card-thumbnail-item');
         
-        // Setup card content structures
-        card.innerHTML = `
-            <img src="${movie.img}" alt="${movie.title} Cover Snapshot">
-            <div class="movie-card-hover-overlay">
-                <div class="card-inline-title">${movie.title}</div>
+        itemCard.innerHTML = `
+            <img src="${movie.img}" alt="${movie.title}">
+            <div class="movie-card-hover-text-overlay">
+                <div class="inline-card-title">${movie.title}</div>
             </div>
         `;
         
-        // Inject active overlay actions on tap
-        card.addEventListener('click', () => {
-            openCinemaTheaterModal(movie.title, movie.plot);
+        itemCard.addEventListener('click', () => {
+            openCinemaTheaterPreviewPanel(movie.title, movie.plot);
         });
         
-        targetContainer.appendChild(card);
+        targetWrapperNode.appendChild(itemCard);
     });
 }
 
-// Main Spotlight play control mapping logic
-function triggerMainFeatureVideo() {
-    if (activeProfileData) {
-        openCinemaTheaterModal(activeProfileData.spotlight.title, activeProfileData.spotlight.plot);
-    }
+function toggleAlternativeUserSession() {
+    const nextSessionKey = (currentSessionKey === "lee") ? "eia" : "lee";
+    selectUserProfile(nextSessionKey);
 }
 
-// Controls Theater expansion overlays view modules
-function openCinemaTheaterModal(title, description) {
+function openCinemaTheaterPreviewPanel(title, description) {
     modalDisplayTitle.textContent = title;
     modalDisplayDescription.textContent = description;
-    previewModal.classList.add('active');
+    cinemaPreviewModal.classList.add('active');
 }
 
-function closeCinemaTheaterModal() {
-    previewModal.classList.remove('active');
+function closeCinemaTheaterPreviewPanel() {
+    cinemaPreviewModal.classList.remove('active');
 }
 
-// Switch back out to profile chooser interface menu
+function playSpotlightFeatureTitle() {
+    const activeData = profilesDatabase[currentSessionKey];
+    if (activeData) {
+        openCinemaTheaterPreviewPanel(activeData.spotlight.title, activeData.spotlight.plot);
+    }
+}
+
 function switchBackToProfiles() {
-    dashboardArea.classList.add('hidden-layer');
-    profileGate.classList.remove('hidden-layer');
+    dashboardArea.classList.add('hidden-display-layer');
+    profileGate.classList.remove('hidden-display-layer');
 }
 
-// ==========================================
-// 4. GLOBAL EVENTS ACTION LISTENERS MAPPINGS
-// ==========================================
+// ==========================================================
+// 4. GLOBAL INTERACTION ACTIONS EVENT LISTENERS
+// ==========================================================
 
-// Handle sticky menu visibility changes on scroll movements
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 45) {
-        mainHeader.classList.add('scrolled-past');
+    if (window.scrollY > 35) {
+        mainHeaderBar.classList.add('scrolled');
     } else {
-        mainHeader.classList.remove('scrolled-past');
+        mainHeaderBar.classList.remove('scrolled');
     }
 });
 
-// Close interactive overlay events bindings
-closeModalBtn.addEventListener('click', closeCinemaTheaterModal);
+moreInfoTrigger.addEventListener('click', playSpotlightFeatureTitle);
 
-previewModal.addEventListener('click', (event) => {
-    if (event.target === previewModal) {
-        closeCinemaTheaterModal();
+let audioFeedbackStateMuted = false;
+audioFeedbackMuteBtn.addEventListener('click', () => {
+    audioFeedbackStateMuted = !audioFeedbackStateMuted;
+    
+    const panel = document.querySelector('.billboard-right-floating-controls-panel');
+    if (audioFeedbackStateMuted) {
+        panel.classList.add('muted');
+    } else {
+        panel.classList.remove('muted');
     }
 });
 
-// Close open overlay frames if hitting the Escape button on desktop boards
+closeCinemaModalBtn.addEventListener('click', closeCinemaTheaterPreviewPanel);
+
+cinemaPreviewModal.addEventListener('click', (event) => {
+    if (event.target === cinemaPreviewModal) {
+        closeCinemaTheaterPreviewPanel();
+    }
+});
+
 document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
-        closeCinemaTheaterModal();
+        closeCinemaTheaterPreviewPanel();
     }
 });
